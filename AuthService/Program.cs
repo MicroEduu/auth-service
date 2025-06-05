@@ -61,16 +61,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = true,
             ValidAudience = jwtSettings["Audience"],
             ValidateLifetime = true,
-            ClockSkew = TimeSpan.Zero
+            ClockSkew = TimeSpan.Zero,
+             RoleClaimType = "role"
         };
     });
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
-    options.AddPolicy("Teacher", policy => policy.RequireRole("Teacher"));
-    options.AddPolicy("Student", policy => policy.RequireRole("Student"));
-    options.AddPolicy("AdminOrTeacher", policy => policy.RequireRole("Admin", "Teacher"));
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("TeacherOnly", policy => policy.RequireRole("Teacher"));
+    options.AddPolicy("StudentOnly", policy => policy.RequireRole("Student"));
+    options.AddPolicy("AdminOrTeacherOnly", policy => policy.RequireRole("Admin", "Teacher"));
 });
 
 

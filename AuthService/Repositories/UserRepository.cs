@@ -19,7 +19,7 @@ namespace AuthService.Repositories
             return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
-        public async Task addUser(User user)
+        public async Task AddUserAsync(User user)
         {
             _context.Users.Add(user);
             await _context.SaveChangesAsync();

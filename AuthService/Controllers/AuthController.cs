@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using AuthService.Services;
 using AuthService.DTO;
 using AuthService.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace AuthService.Controllers
@@ -18,6 +19,7 @@ namespace AuthService.Controllers
         }
 
         [HttpPost("login")]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginRequestDTO request)
         {
             var result = await _authService.Login(request);

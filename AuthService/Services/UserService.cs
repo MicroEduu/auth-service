@@ -13,15 +13,14 @@ namespace AuthService.Services
             _repository = repository;
         }
 
-        public async void Create(CreateUserRequestDTO request)
+        public async Task Create(CreateUserRequestDTO request)
         {
-            var userExists =  _repository.GetByEmailAsync(request.Email);
+            var userExists = await _repository.GetByEmailAsync(request.Email);
 
             if (userExists != null)
             {
                 throw new ArgumentException("E-mail já está em uso", nameof(request.Email));
             }
-
 
             var user = new User
             {
@@ -29,10 +28,11 @@ namespace AuthService.Services
                 Email = request.Email,
                 Password = Hash(request.Password),
                 CreatedAt = DateTime.UtcNow,
+                Role = request.Role,
                 IsActive = true
             };
 
-             _repository.addUser(user);
+            await _repository.AddUserAsync(user);
         }
 
         private string Hash(string password)

@@ -7,6 +7,7 @@
     using AuthService.Models;
     using AuthService.DTO;
 using AuthService.Interfaces;
+using AuthService.Enum;
 
 namespace AuthService.Services
 {
@@ -60,8 +61,8 @@ namespace AuthService.Services
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Role, user.Role.ToString()),
                 new Claim("firstName", user.FirstName),
+                new Claim("role", ((ERole)user.Role).ToString()),
                 new Claim("lastName", user.LastName)
             };
 
