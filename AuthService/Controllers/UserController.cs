@@ -42,10 +42,7 @@ namespace AuthService.Controllers
         [Authorize]
         public IActionResult Update([FromRoute] int id, [FromBody] UpdateUserRequestDTO dto)
         {
-            var isAdmin = User.IsInRole("Admin"); 
-
-            if (!isAdmin)
-                return Forbid("Você não é admin");
+           
             try
             {
                 _userService.Update(id, dto);
