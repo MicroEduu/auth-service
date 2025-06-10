@@ -9,7 +9,6 @@ namespace AuthService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly UserService _userService;
@@ -47,7 +46,7 @@ namespace AuthService.Controllers
             {
                 _userService.Update(id, dto);
 
-                return Ok("Usuário alterada com sucesso");
+                return Ok("Usuï¿½rio alterada com sucesso");
             }
             catch (Exception e)
             {
@@ -95,7 +94,7 @@ namespace AuthService.Controllers
             {
                 _userService.DeleteUser(id);
 
-                return Ok("Usuário excluído com sucesso");
+                return Ok("Usuï¿½rio excluï¿½do com sucesso");
             }
             catch (Exception e)
             {
@@ -110,7 +109,7 @@ namespace AuthService.Controllers
             try
             {
                 _userService.Desactivate(id);
-                return Ok("Usuário inativado com sucesso");
+                return Ok("Usuï¿½rio inativado com sucesso");
             }
             catch (Exception e)
             {
