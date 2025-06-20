@@ -20,7 +20,7 @@ Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
 ### 1️⃣ Clonar o Repositório
 
 ```bash
-git clone <https://github.com/MicroEduu/auth-service>
+git clone https://github.com/MicroEduu/auth-service
 cd AuthService
 ```
 
