@@ -65,7 +65,7 @@ dotnet run
 🎉 **AuthService iniciado com sucesso!**
 
 A aplicação estará disponível em:
-- 🌐 **HTTP:** http://localhost:5072/swagger/index.html
+- 🌐 **HTTP:** http://localhost:5089/swagger/index.html
 
 # 📌 Rotas da API
 
