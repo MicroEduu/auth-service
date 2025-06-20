@@ -46,7 +46,7 @@ namespace AuthService.Controllers
             {
                 _userService.Update(id, dto);
 
-                return Ok("Usu�rio alterada com sucesso");
+                return Ok("Usuário alterada com sucesso");
             }
             catch (Exception e)
             {
@@ -94,7 +94,7 @@ namespace AuthService.Controllers
             {
                 _userService.DeleteUser(id);
 
-                return Ok("Usu�rio exclu�do com sucesso");
+                return Ok("Usuário exclu�do com sucesso");
             }
             catch (Exception e)
             {
@@ -109,7 +109,7 @@ namespace AuthService.Controllers
             try
             {
                 _userService.Desactivate(id);
-                return Ok("Usu�rio inativado com sucesso");
+                return Ok("Usuário inativado com sucesso");
             }
             catch (Exception e)
             {
